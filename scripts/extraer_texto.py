@@ -14,22 +14,22 @@ def extraer_texto(file_bytes: bytes, filename: str) -> str:
 
     return ""
     
-def extraer_pdf(file: UploadFile) -> str:
-    contenido = file.file.read()
-    reader = PdfReader(io.BytesIO(contenido))
+def extraer_pdf_bytes(file_bytes: bytes) -> str:
+    reader = PdfReader(io.BytesIO(file_bytes))
 
     text = []
     for page in reader.pages:
         page_text = page.extract_text()
         if page_text:
             text.append(page_text)
+
     return texto_limpio("\n".join(text))
 
-def extraer_word(file: UploadFile) -> str:
-    contenido = file.file.read()
-    documento = Document(io.BytesIO(contenido))
 
-    texto = [p.text for p in documento.paragraphs if p.text.strip()]
+def extraer_word(file_bytes: bytes) -> str:
+    document = Document(io.BytesIO(file_bytes))
+
+    texto = [p.text for p in document.paragraphs if p.text.strip()]
     return texto_limpio("\n".join(texto))
 
 def texto_limpio(texto):

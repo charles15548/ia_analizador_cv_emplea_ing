@@ -13,9 +13,6 @@ def respuesta(file):
     print(cv_text[:1000])  # solo los primeros 1000 caracteres
     print("\n===== FIN TEXTO =====")
 
-    
-
-    
 
     images = []
     filename = file.filename.lower()
@@ -30,10 +27,10 @@ def respuesta(file):
         images = pdf_to_images_base64(file_bytes)
 
     if not cv_text.strip():
-        raise ValueError("No se pudo extraer texto del CV")
-        
-    
-
+        cv_text = (
+            "El CV no contiene texto legible. "
+            "Analiza únicamente a partir del contenido visual."
+        )
 
     response = llamada_gpt(cv_text,images)
 
