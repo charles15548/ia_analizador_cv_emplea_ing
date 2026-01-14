@@ -3,18 +3,16 @@ from docx import Document
 from PyPDF2 import PdfReader
 import io
 
-def extraer_texto(file: UploadFile) -> str:
-    file.file.seek(0) 
-    filename = file.filename.lower()
+def extraer_texto(file_bytes: bytes, filename: str) -> str:
+    filename = filename.lower()
 
     if filename.endswith(".pdf"):
-        return extraer_pdf(file)
+        return extraer_pdf(file_bytes)
+
     if filename.endswith(".docx"):
-        return extraer_word(file)
-    
-    else:
-        print("formato no soportado")
-        raise ValueError("Formato no Soportado. Usa PDF o DOCX.")
+        return extraer_word(file_bytes)
+
+    return ""
     
 def extraer_pdf(file: UploadFile) -> str:
     contenido = file.file.read()
