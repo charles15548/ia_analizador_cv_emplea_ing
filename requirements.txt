@@ -5,3 +5,12 @@ Pillow
 python-docx
 openai
 python-dotenv
+
+fastapi
+uvicorn
+PyMuPDF
+Pillow
+python-docx
+PyPDF2
+openai
+python-dotenv
