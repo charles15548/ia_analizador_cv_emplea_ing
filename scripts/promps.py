@@ -88,6 +88,8 @@ FORMATO DE RESPUESTA(OBLIGATORIO):
 - El summary debe ser un resumen claro y breve del estado general del CV.
 - Incluye **entre 5 y 6 recomendaciones en total**.
 - La descripción de cada recommendation debe estar en **Markdown limpio**, sin bloques de código ni backticks.
+- Usa párrafos separados por una línea en blanco
+- Usa saltos de línea dobles (\\n\\n) para separar ideas
 
 ---
 CV:
