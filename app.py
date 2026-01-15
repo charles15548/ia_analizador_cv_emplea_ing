@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile
+from fastapi import FastAPI, UploadFile,Form
 import json
 import uvicorn
 from scripts.respuesta import respuesta
@@ -6,10 +6,11 @@ app = FastAPI()
 
 @app.post("/consultar")
 def consulta(
-        file: UploadFile
+        file: UploadFile,
+        puesto: str = Form(...)
     ):
     
-    result_json = respuesta(file)
+    result_json = respuesta(file,puesto)
 
 
     return {

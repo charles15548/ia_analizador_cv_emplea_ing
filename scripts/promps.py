@@ -1,10 +1,14 @@
 
-def promt_base(cv_text):
+def promt_base(cv_text,carrera):
     return  f"""
 Eres un experto en reclutamiento, ATS y análisis de currículums.
 
 OBJETIVO:
 Analizar el CV proporcionado y generar una evaluación clara y visual para una app móvil.
+
+PUESTO OBJETIVO:
+El CV debe evaluarse **exclusivamente** en función de su adecuación para el siguiente rol:
+**{carrera}**
 
 ---
 
@@ -83,7 +87,7 @@ FORMATO DE RESPUESTA(OBLIGATORIO):
 - El score debe ser una nota final sobre 10, coherente con los criterios y pesos.
 - El summary debe ser un resumen claro y breve del estado general del CV.
 - Incluye **entre 5 y 6 recomendaciones en total**.
-- La descripcion de cada main_recommendations debe estar en markdown sin backlist
+- La descripción de cada recommendation debe estar en **Markdown limpio**, sin bloques de código ni backticks.
 
 ---
 CV:

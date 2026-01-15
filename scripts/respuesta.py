@@ -3,7 +3,7 @@ from scripts.extraer_img import pdf_to_images_base64
 
 import json
 from scripts.gpt import llamada_gpt
-def respuesta(file):
+def respuesta(file,puesto):
     file.file.seek(0)
     file_bytes = file.file.read()
 
@@ -32,7 +32,12 @@ def respuesta(file):
             "Analiza únicamente a partir del contenido visual."
         )
 
-    response = llamada_gpt(cv_text,images)
+    response = llamada_gpt(cv_text,images,puesto)
+    
+
+    print("\n===== RESPUESTA GPT =====")
+    print(response[:1300])  # solo los primeros 1000 caracteres
+    print("\n===== FIN GPT =====")
 
     resultado = json.loads(response)
     return resultado

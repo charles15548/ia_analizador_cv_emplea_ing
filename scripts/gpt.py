@@ -40,11 +40,11 @@ client = OpenAI()
 
 
 
-def llamada_gpt(cv_text,images):
+def llamada_gpt(cv_text,images,puesto):
     content = [
         {
             "type": "input_text",
-            "text": promt_base(cv_text)
+            "text": promt_base(cv_text,puesto)
         }
     ]
     for img in images:
