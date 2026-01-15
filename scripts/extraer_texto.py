@@ -7,7 +7,7 @@ def extraer_texto(file_bytes: bytes, filename: str) -> str:
     filename = filename.lower()
 
     if filename.endswith(".pdf"):
-        return extraer_pdf(file_bytes)
+        return extraer_pdf_bytes(file_bytes)
 
     if filename.endswith(".docx"):
         return extraer_word(file_bytes)
